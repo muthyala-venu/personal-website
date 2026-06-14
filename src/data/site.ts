@@ -6,6 +6,19 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://muthyalavenu.org",
   locale: "en_IN",
   designation: "State Vice President – Public Grievances",
+  occupation: ["Entrepreneur", "Social Services", "Financial Consultant"],
+  ventures: [
+    {
+      name: "Aryan Filling Station",
+      established: "2023",
+      description: "Business establishment in Telangana.",
+    },
+    {
+      name: "Aryan Pay Enterprises",
+      established: "2024",
+      description: "Enterprise venture in Telangana.",
+    },
+  ],
   organization: {
     name: "All India Council of Human Rights, Liberties & Social Justice",
     shortName: "AICHLS",
@@ -22,7 +35,7 @@ export const siteConfig = {
   tagline:
     "Public Grievance and Human Rights Advocate dedicated to promoting awareness, citizen engagement, community welfare, and responsible grievance redressal.",
   contact: {
-    email: "contact@muthyalavenu.org",
+    email: "venumuthyala4u@gmail.com",
     phone: "+91-XXXXXXXXXX",
     whatsapp: "+91-XXXXXXXXXX",
     address: "Telangana, India",
@@ -44,22 +57,35 @@ export const siteConfig = {
     "Legal Awareness Telangana",
     "AICHLS Telangana",
     "Human Rights Telangana",
+    "Financial Consultant Telangana",
+    "Social Services Telangana",
   ],
   disclaimer:
     "This website provides educational information on human rights awareness and public grievance processes. Content does not constitute legal advice. Organizational credentials represent an association role and should not be interpreted as a government appointment or statutory authority.",
+  images: {
+    portrait: "/images/muthyalavenu.png",
+    orgLogo: "/images/orglogo.png",
+  },
+  documents: {
+    appointmentCertificate: "/documents/aichls-appointment-certificate.pdf",
+  },
 };
 
 export const personEntity = {
   name: "Muthyala Venu",
   jobTitle: "State Vice President – Public Grievances",
+  occupation: siteConfig.occupation,
   worksFor: siteConfig.organization.name,
   description: siteConfig.tagline,
+  email: siteConfig.contact.email,
   knowsAbout: [
     "Human Rights Awareness",
     "Public Grievance Awareness",
     "Citizen Rights Education",
     "Legal Awareness",
     "Community Welfare",
+    "Social Services",
+    "Financial Consulting",
     "Constitutional Rights",
     "RTI Awareness",
     "Consumer Rights",

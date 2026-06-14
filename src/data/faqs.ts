@@ -138,7 +138,7 @@ export const globalFaqs: FAQ[] = [
     id: "faq-20",
     question: "How does this website help with SEO and public awareness?",
     answer:
-      "The website provides structured, accessible information optimized for search engines and answer engines. Through articles, guides, FAQs, schema markup, and entity-focused content, it helps citizens discover reliable educational material on human rights, grievances, and legal awareness related to Telangana and India.",
+      "The website provides structured, accessible information optimized for search engines and answer engines. Through articles, guides, FAQs, and profile content about Muthyala Venu, it helps citizens discover reliable educational material on human rights, grievances, and legal awareness related to Telangana and India.",
     category: "General",
   },
 ];

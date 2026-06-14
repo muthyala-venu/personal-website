@@ -6,7 +6,6 @@ export const navigation = [
   { name: "Grievance Guides", href: "/public-grievance-guides" },
   { name: "Articles", href: "/articles" },
   { name: "Credentials", href: "/credentials" },
-  { name: "Gallery", href: "/gallery" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];

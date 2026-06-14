@@ -4,9 +4,12 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { SummaryBlock } from "@/components/ui/SummaryBlock";
+import { PortraitImage } from "@/components/ui/PortraitImage";
+import { OrgLogo } from "@/components/ui/OrgLogo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, personSchema } from "@/lib/schema";
 import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Contact",
@@ -30,7 +33,7 @@ export default function ContactPage() {
       <JsonLd data={personSchema()} />
       <PageHero
         title="Contact"
-        subtitle="Reach out for awareness initiatives, educational inquiries, and community engagement."
+        subtitle={`Reach out to ${siteConfig.name} for awareness initiatives, educational inquiries, and community engagement.`}
         badge="Get in Touch"
       />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -38,6 +41,10 @@ export default function ContactPage() {
 
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
+            <div className="mb-8 flex items-center gap-4">
+              <PortraitImage size="md" className="shadow-md" />
+              <OrgLogo size="sm" showName />
+            </div>
             <SummaryBlock title="Contact Information">
               <ul className="mt-4 space-y-4">
                 <li className="flex items-start gap-3">
@@ -106,6 +113,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        <PageAttribution />
       </div>
     </>
   );

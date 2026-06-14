@@ -7,11 +7,12 @@ import { SummaryBlock } from "@/components/ui/SummaryBlock";
 import { FAQBlock } from "@/components/ui/FAQBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Role & Responsibilities",
   description:
-    "Understanding the role of public grievance awareness, citizen rights education, and human rights advocacy in community welfare.",
+    "Understanding the role of Muthyala Venu in public grievance awareness, citizen rights education, and human rights advocacy in Telangana.",
   path: "/role-and-responsibilities",
   keywords: ["Public Grievance Role", "Human Rights Advocacy", "Citizen Rights Education"],
 });
@@ -132,6 +133,7 @@ export default function RolePage() {
         </div>
 
         <FAQBlock faqs={roleFaqs} />
+        <PageAttribution />
       </div>
     </>
   );

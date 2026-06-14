@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/public-grievance-guides",
     "/articles",
     "/credentials",
-    "/gallery",
     "/faq",
     "/contact",
     "/admin",

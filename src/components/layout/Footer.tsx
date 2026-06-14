@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig, topicEntities } from "@/data/site";
 import { navigation } from "@/data/navigation";
 
@@ -8,7 +9,16 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h2 className="font-heading text-xl font-bold">{siteConfig.name}</h2>
+            <div className="flex items-center gap-3">
+              <Image
+                src={siteConfig.images.orgLogo}
+                alt={siteConfig.organization.shortName}
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-md bg-white object-contain p-1"
+              />
+              <h2 className="font-heading text-xl font-bold">{siteConfig.name}</h2>
+            </div>
             <p className="mt-3 text-sm leading-relaxed text-blue-100">
               {siteConfig.tagline}
             </p>

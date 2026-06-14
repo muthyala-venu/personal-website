@@ -116,7 +116,7 @@ export default async function ArticlePage({ params }: Props) {
 
         <div className="mt-12 rounded-lg bg-surface p-6 text-center">
           <p className="text-sm text-slate-600">
-            For grievance guidance, visit{" "}
+            Published by <strong>{siteConfig.name}</strong>. For grievance guidance, visit{" "}
             <Link href="/public-grievance-guides" className="text-secondary hover:underline">
               Public Grievance Guides
             </Link>{" "}

@@ -8,6 +8,8 @@ import { FAQBlock } from "@/components/ui/FAQBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { guides, getGuideBySlug } from "@/data/guides";
+import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
     title: guide.title,
     description: guide.excerpt,
     path: `/public-grievance-guides/${slug}`,
-    keywords: [guide.category, "Public Grievance Guide"],
+    keywords: [guide.category, "Public Grievance Guide", siteConfig.name],
   });
 }
 
@@ -69,6 +71,7 @@ export default async function GuidePage({ params }: Props) {
         </div>
 
         <FAQBlock faqs={guide.faqs} />
+        <PageAttribution />
       </div>
     </>
   );

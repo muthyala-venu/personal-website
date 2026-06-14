@@ -9,6 +9,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { knowledgeCategories, getCategoryBySlug } from "@/data/categories";
 import { getArticleBySlug } from "@/data/articles";
+import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
     title: category.title,
     description: category.description,
     path: `/human-rights-knowledge-hub/${slug}`,
-    keywords: [category.title, "Human Rights Telangana"],
+    keywords: [category.title, "Human Rights Telangana", siteConfig.name],
   });
 }
 
@@ -94,6 +96,7 @@ export default async function CategoryPage({ params }: Props) {
         </section>
 
         <FAQBlock faqs={category.faqs} />
+        <PageAttribution />
       </div>
     </>
   );

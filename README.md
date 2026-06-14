@@ -38,7 +38,6 @@ npm start
 | `/public-grievance-guides` | 8 citizen guides |
 | `/articles` | 30 SEO articles |
 | `/credentials` | Organizational credentials |
-| `/gallery` | Photo gallery (placeholders) |
 | `/faq` | 20 FAQs with schema |
 | `/contact` | Contact form + WhatsApp |
 | `/admin` | CMS-ready architecture docs |

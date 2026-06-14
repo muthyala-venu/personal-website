@@ -9,6 +9,8 @@ export function personSchema() {
     jobTitle: personEntity.jobTitle,
     description: personEntity.description,
     url: siteConfig.url,
+    image: `${siteConfig.url}${siteConfig.images.portrait}`,
+    email: siteConfig.contact.email,
     knowsAbout: personEntity.knowsAbout,
     worksFor: {
       "@type": "Organization",
@@ -30,6 +32,7 @@ export function organizationSchema() {
     alternateName: siteConfig.organization.shortName,
     description: siteConfig.organization.description,
     url: siteConfig.organization.url,
+    logo: `${siteConfig.url}${siteConfig.images.orgLogo}`,
     member: {
       "@type": "Person",
       name: personEntity.name,

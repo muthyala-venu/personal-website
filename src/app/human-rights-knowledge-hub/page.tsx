@@ -20,11 +20,13 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { knowledgeCategories } from "@/data/categories";
 import { globalFaqs } from "@/data/faqs";
+import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Human Rights Knowledge Hub",
   description:
-    "Educational resources on human rights, consumer rights, constitutional rights, RTI, cyber safety, and legal awareness for citizens in India.",
+    "Human Rights Knowledge Hub by Muthyala Venu — educational resources on citizen rights, RTI, cyber safety, and legal awareness in Telangana.",
   path: "/human-rights-knowledge-hub",
   keywords: ["Human Rights Knowledge Hub", "Citizen Rights India", "Legal Awareness Telangana"],
 });
@@ -66,7 +68,7 @@ export default function KnowledgeHubPage() {
 
         <SummaryBlock title="What is the Knowledge Hub?">
           <p>
-            The Human Rights Knowledge Hub provides structured educational content across ten categories.
+            The Human Rights Knowledge Hub by {siteConfig.name} provides structured educational content across ten categories.
             Each category includes articles, FAQs, and placeholders for future downloadable resources.
             All content is informational and does not constitute legal advice.
           </p>
@@ -93,6 +95,7 @@ export default function KnowledgeHubPage() {
         </div>
 
         <FAQBlock faqs={hubFaqs.slice(0, 5)} title="Knowledge Hub FAQs" />
+        <PageAttribution />
       </div>
     </>
   );

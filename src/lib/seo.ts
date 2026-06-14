@@ -39,6 +39,7 @@ export function createMetadata({
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       type,
+      images: [{ url: siteConfig.images.portrait, alt: siteConfig.name }],
       ...(publishedTime && { publishedTime }),
       ...(modifiedTime && { modifiedTime }),
     },

@@ -8,11 +8,13 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { guides } from "@/data/guides";
 import { globalFaqs } from "@/data/faqs";
+import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Public Grievance Guides",
   description:
-    "Step-by-step educational guides on filing public grievances, RTI, consumer complaints, cyber crime reporting, and emergency resources.",
+    "Public grievance guides by Muthyala Venu — RTI, consumer complaints, cyber crime reporting, and emergency resources for citizens in Telangana.",
   path: "/public-grievance-guides",
   keywords: ["Public Grievance Guides", "How to File Grievance", "RTI Guide India"],
 });
@@ -41,7 +43,7 @@ export default function GuidesPage() {
 
         <SummaryBlock title="Important Notice">
           <p>
-            These guides are for educational purposes only. They do not constitute legal advice. Always verify
+            These guides are published by {siteConfig.name} for educational purposes only. They do not constitute legal advice. Always verify
             current procedures with official government sources before taking action. No guide on this site
             guarantees outcomes or implies personal authority to resolve grievances.
           </p>
@@ -54,6 +56,7 @@ export default function GuidesPage() {
         </div>
 
         <FAQBlock faqs={guideFaqs.slice(0, 5)} title="Guide FAQs" />
+        <PageAttribution />
       </div>
     </>
   );

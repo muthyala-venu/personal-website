@@ -1,12 +1,14 @@
-import { Award, FileText, Shield, QrCode } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SummaryBlock } from "@/components/ui/SummaryBlock";
+import { PortraitImage } from "@/components/ui/PortraitImage";
+import { OrgLogo } from "@/components/ui/OrgLogo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, organizationSchema, personSchema } from "@/lib/schema";
 import { siteConfig } from "@/data/site";
-import { credentials, credentialDisclaimer } from "@/data/credentials";
+import { credentialDisclaimer, appointmentCertificate } from "@/data/credentials";
+import { AppointmentCertificate } from "@/components/credentials/AppointmentCertificate";
 
 export const metadata = createMetadata({
   title: "Credentials",
@@ -15,13 +17,6 @@ export const metadata = createMetadata({
   path: "/credentials",
   keywords: ["Muthyala Venu Credentials", "AICHLS Telangana"],
 });
-
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  appointment: Award,
-  membership: FileText,
-  certificate: Shield,
-  verification: QrCode,
-};
 
 export default function CredentialsPage() {
   return (
@@ -36,7 +31,7 @@ export default function CredentialsPage() {
       <JsonLd data={organizationSchema()} />
       <PageHero
         title="Professional Credentials"
-        subtitle="Organizational role and association documentation."
+        subtitle="Organizational role and association with AICHLS."
         badge="Verification"
       />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -45,6 +40,31 @@ export default function CredentialsPage() {
         <div className="rounded-lg border-2 border-accent/50 bg-accent/5 p-6">
           <h2 className="font-heading text-lg font-bold text-primary">Important Disclaimer</h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-700">{credentialDisclaimer}</p>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <div className="rounded-lg border border-border bg-white p-8 shadow-sm">
+            <h2 className="font-heading text-xl font-bold text-primary">Profile</h2>
+            <div className="mt-6 flex flex-col items-center sm:flex-row sm:items-start sm:gap-6">
+              <PortraitImage size="lg" className="shadow-md" />
+              <div className="mt-4 text-center sm:mt-0 sm:text-left">
+                <p className="font-heading text-lg font-bold text-primary">{siteConfig.name}</p>
+                <p className="mt-1 text-sm font-medium text-secondary">{siteConfig.designation}</p>
+                <p className="mt-3 text-sm text-slate-600">
+                  {siteConfig.location.state}, {siteConfig.location.country}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-border bg-white p-8 shadow-sm">
+            <h2 className="font-heading text-xl font-bold text-primary">Serving Organization</h2>
+            <div className="mt-6 flex flex-col items-center text-center">
+              <OrgLogo size="lg" className="justify-center" />
+              <p className="mt-4 font-semibold text-primary">{siteConfig.organization.name}</p>
+              <p className="mt-2 text-sm text-slate-600">{siteConfig.organization.description}</p>
+            </div>
+          </div>
         </div>
 
         <SummaryBlock title="Appointment Details">
@@ -56,38 +76,15 @@ export default function CredentialsPage() {
             <strong>Organization:</strong> {siteConfig.organization.name} ({siteConfig.organization.shortName})
             <br />
             <strong>Location:</strong> {siteConfig.location.state}, {siteConfig.location.country}
+            <br />
+            <strong>Email:</strong>{" "}
+            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+            <br />
+            <strong>Occupation:</strong> {siteConfig.occupation.join(", ")}
           </p>
         </SummaryBlock>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {credentials.map((cred) => {
-            const Icon = iconMap[cred.type] || Award;
-            return (
-              <div key={cred.id} className="rounded-lg border border-border bg-white p-6 shadow-sm">
-                <Icon className="text-secondary" size={32} />
-                <h3 className="mt-4 font-heading text-lg font-bold text-primary">{cred.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{cred.description}</p>
-                <div className="mt-4 flex aspect-video items-center justify-center rounded-lg bg-surface text-sm text-muted">
-                  {cred.type === "certificate" && "Certificate Image Placeholder"}
-                  {cred.type === "appointment" && "Appointment Letter Placeholder"}
-                  {cred.type === "verification" && "QR Verification Placeholder"}
-                  {cred.type === "membership" && "Membership Document Placeholder"}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <section className="mt-12">
-          <h2 className="font-heading text-2xl font-bold text-primary">Organization Information</h2>
-          <div className="mt-4 rounded-lg border border-border p-6">
-            <p className="font-semibold text-primary">{siteConfig.organization.name}</p>
-            <p className="mt-2 text-sm text-slate-600">{siteConfig.organization.description}</p>
-            <p className="mt-4 text-sm text-muted">
-              Validity information and verification details will be updated when official documentation is available for public display.
-            </p>
-          </div>
-        </section>
+        <AppointmentCertificate />
       </div>
     </>
   );

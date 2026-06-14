@@ -4,12 +4,13 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import {
   FileText,
-  Image,
   Award,
   Search,
   Settings,
   LayoutDashboard,
 } from "lucide-react";
+import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Admin",
@@ -25,14 +26,8 @@ const adminModules = [
     href: "/articles",
   },
   {
-    title: "Gallery Management",
-    description: "Manage gallery categories and media items. Data layer: src/data/gallery.ts",
-    icon: Image,
-    href: "/gallery",
-  },
-  {
     title: "Credentials Management",
-    description: "Update credentials and verification documents. Data layer: src/data/credentials.ts",
+    description: "Update credentials and profile images. Data layer: src/data/credentials.ts & public/images/",
     icon: Award,
     href: "/credentials",
   },
@@ -44,7 +39,7 @@ const adminModules = [
   },
   {
     title: "Metadata Management",
-    description: "Site config, keywords, and entity data in src/data/site.ts",
+    description: "Site config, keywords, and profile data in src/data/site.ts",
     icon: Settings,
     href: "/",
   },
@@ -96,18 +91,19 @@ export default function AdminPage() {
           <h2 className="font-heading text-xl font-bold text-primary">Data Layer Structure</h2>
           <pre className="mt-4 overflow-x-auto rounded-lg bg-surface p-4 text-xs text-slate-700">
 {`src/data/
-├── site.ts              # Site config, entity SEO
+├── site.ts              # Site config, profile & SEO
 ├── articles/            # 30 articles (batch-1/2/3.ts)
 ├── guides.ts            # Grievance guides
 ├── categories.ts        # Knowledge hub categories
 ├── faqs.ts              # Global FAQs
-├── gallery.ts           # Gallery items
-├── credentials.ts       # Credentials
+├── credentials.ts       # Credentials disclaimer
 ├── focus-areas.ts       # Home focus areas
 ├── timeline.ts          # About timeline
 └── navigation.ts        # Nav links`}
           </pre>
         </section>
+
+        <PageAttribution />
       </div>
     </>
   );

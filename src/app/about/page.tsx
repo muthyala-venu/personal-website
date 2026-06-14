@@ -3,7 +3,9 @@ import { createMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { FAQBlock } from "@/components/ui/FAQBlock";
-import { EntityBlock } from "@/components/seo/EntityBlock";
+import { ProfileSummary } from "@/components/seo/ProfileSummary";
+import { PortraitImage } from "@/components/ui/PortraitImage";
+import { OrgLogo } from "@/components/ui/OrgLogo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { siteConfig } from "@/data/site";
@@ -30,6 +32,8 @@ const areasOfInterest = [
   "Human Rights Awareness",
   "Public Grievances",
   "Legal Awareness",
+  "Social Services",
+  "Financial Consulting",
   "Community Engagement",
   "Citizen Empowerment",
 ];
@@ -54,26 +58,47 @@ export default function AboutPage() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
+        <div className="mb-12 flex flex-col items-center gap-8 sm:flex-row sm:items-start">
+          <PortraitImage size="lg" priority className="shrink-0 shadow-md" />
+          <div className="flex-1">
+            <OrgLogo size="lg" showName className="mb-4" />
+            <p className="text-sm font-medium text-secondary">{siteConfig.designation}</p>
+            <p className="mt-3 leading-relaxed text-slate-600">{siteConfig.tagline}</p>
+          </div>
+        </div>
+
         <div className="prose-content max-w-none">
           <h2>Biography</h2>
           <p>
-            Muthyala Venu is a public-facing advocate based in Telangana, India, working in the areas of human
-            rights awareness, public grievance education, legal literacy, and community welfare. He serves as{" "}
-            {siteConfig.designation} with the {siteConfig.organization.name} ({siteConfig.organization.shortName}).
+            Muthyala Venu is an entrepreneur and social services professional based in Telangana, India. He is
+            also engaged as a financial consultant and serves as {siteConfig.designation} with the{" "}
+            {siteConfig.organization.name} ({siteConfig.organization.shortName}).
           </p>
           <p>
-            His work focuses on helping citizens understand their rights, navigate grievance mechanisms responsibly,
-            and engage with community welfare initiatives. This website is part of an ongoing effort to build a
-            credible public profile through education and ethical advocacy—not through unverifiable claims of
-            experience, awards, or government authority.
+            In 2023, he established <strong>Aryan Filling Station</strong>, followed by{" "}
+            <strong>Aryan Pay Enterprises</strong> in 2024. Alongside his business ventures, he works in social
+            services and citizen-focused advocacy—helping communities understand their rights, navigate grievance
+            mechanisms responsibly, and engage with welfare initiatives.
+          </p>
+          <p>
+            This website supports his public profile in human rights awareness, public grievance education, and
+            community welfare—presented honestly without unverifiable claims of awards or government authority.
           </p>
 
           <h2>Professional Profile</h2>
           <p>
+            <strong>Occupation:</strong> Entrepreneur, Social Services, Financial Consultant
+            <br />
+            <strong>Location:</strong> Telangana, India
+            <br />
+            <strong>Email:</strong>{" "}
+            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+          </p>
+          <p>
             As State Vice President – Public Grievances with AICHLS, Muthyala Venu contributes to organizational
-            initiatives focused on public grievance awareness and citizen rights education. The role is centered
-            on awareness building, community engagement, and responsible advocacy within the human rights and
-            social justice space.
+            initiatives focused on public grievance awareness and citizen rights education. His entrepreneurial
+            background through Aryan Filling Station and Aryan Pay Enterprises complements his community-oriented
+            work in social services and financial consulting.
           </p>
 
           <h2>Vision</h2>
@@ -102,9 +127,9 @@ export default function AboutPage() {
             ))}
           </ul>
 
-          <h2>Professional Development Timeline</h2>
+          <h2>Professional Timeline</h2>
           <p className="text-sm text-muted italic">
-            The following timeline reflects areas of ongoing interest and association—not fabricated achievements.
+            Key professional milestones as provided for public profile.
           </p>
           <div className="not-prose mt-6 space-y-4">
             {professionalTimeline.map((item) => (
@@ -120,7 +145,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-12">
-          <EntityBlock />
+          <ProfileSummary />
         </div>
 
         <FAQBlock faqs={aboutFaqs} title="About — Frequently Asked Questions" />

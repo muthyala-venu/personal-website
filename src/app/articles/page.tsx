@@ -6,11 +6,13 @@ import { ArticleCard } from "@/components/cards/ArticleCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { getAllArticles } from "@/data/articles";
+import { siteConfig } from "@/data/site";
+import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Articles",
   description:
-    "30 educational articles on human rights, citizen rights, public grievances, legal awareness, and community welfare in India.",
+    "Educational articles by Muthyala Venu on human rights, citizen rights, public grievances, legal awareness, and community welfare in India.",
   path: "/articles",
   keywords: ["Human Rights Articles", "Citizen Rights India", "Legal Awareness Articles"],
 });
@@ -36,8 +38,9 @@ export default function ArticlesPage() {
 
         <SummaryBlock title="About These Articles">
           <p>
-            Each article is written for educational and SEO-friendly awareness purposes. Content does not
-            constitute legal advice. Laws and procedures may change—verify with official sources for specific cases.
+            These articles are published by {siteConfig.name} for educational and SEO-friendly awareness
+            purposes. Content does not constitute legal advice. Laws and procedures may change—verify with
+            official sources for specific cases.
           </p>
         </SummaryBlock>
 
@@ -46,6 +49,8 @@ export default function ArticlesPage() {
             <ArticleCard key={article.slug} article={article} />
           ))}
         </div>
+
+        <PageAttribution />
       </div>
     </>
   );

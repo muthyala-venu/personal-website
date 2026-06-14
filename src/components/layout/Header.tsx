@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/data/navigation";
@@ -12,13 +13,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex flex-col">
-          <span className="font-heading text-lg font-bold text-primary sm:text-xl">
-            {siteConfig.name}
-          </span>
-          <span className="hidden text-xs text-muted sm:block">
-            Human Rights & Public Grievance Advocate
-          </span>
+        <Link href="/" className="group flex items-center gap-3">
+          <Image
+            src={siteConfig.images.orgLogo}
+            alt={siteConfig.organization.shortName}
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-md object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="font-heading text-lg font-bold text-primary sm:text-xl">
+              {siteConfig.name}
+            </span>
+            <span className="hidden text-xs text-muted sm:block">
+              {siteConfig.organization.shortName}
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">

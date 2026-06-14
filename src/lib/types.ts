@@ -39,20 +39,6 @@ export interface KnowledgeCategory {
   articleSlugs: string[];
 }
 
-export interface GalleryItem {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-}
-
-export interface Credential {
-  id: string;
-  title: string;
-  description: string;
-  type: "appointment" | "membership" | "certificate" | "verification";
-}
-
 export interface TimelineItem {
   period: string;
   title: string;

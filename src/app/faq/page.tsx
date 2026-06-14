@@ -3,7 +3,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { FAQBlock } from "@/components/ui/FAQBlock";
 import { SummaryBlock } from "@/components/ui/SummaryBlock";
-import { EntityBlock } from "@/components/seo/EntityBlock";
+import { ProfileSummary } from "@/components/seo/ProfileSummary";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { globalFaqs } from "@/data/faqs";
@@ -44,7 +44,7 @@ export default function FAQPage() {
         <FAQBlock faqs={globalFaqs} />
 
         <div className="mt-12">
-          <EntityBlock />
+          <ProfileSummary />
         </div>
       </div>
     </>
