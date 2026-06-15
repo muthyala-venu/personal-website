@@ -67,7 +67,7 @@ export const siteConfig = {
     orgLogo: "/images/orglogo.png",
   },
   documents: {
-    appointmentCertificate: "/documents/aichls-appointment-certificate.pdf",
+    appointmentCertificate: "/images/aichls-appointment-certificate.jpeg",
   },
 };
 

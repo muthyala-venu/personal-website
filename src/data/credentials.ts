@@ -5,7 +5,8 @@ export const appointmentCertificate = {
   title: "Appointment Certificate — State Vice President, Public Grievances",
   description:
     "Official appointment certificate for the role of State Vice President – Public Grievances with the All India Council of Human Rights, Liberties & Social Justice (AICHLS).",
-  file: "/documents/aichls-appointment-certificate.pdf",
+  file: "/images/aichls-appointment-certificate.jpeg",
+  type: "image" as const,
   designation: "State Vice President – Public Grievances",
   organization: "All India Council of Human Rights, Liberties & Social Justice (AICHLS)",
 };
