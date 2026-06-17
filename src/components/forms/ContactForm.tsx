@@ -1,25 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
-export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+interface ContactFormProps {
+  whatsappNumber: string;
+}
+
+export function ContactForm({ whatsappNumber }: ContactFormProps) {
+  const [error, setError] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
-  }
+    setError("");
 
-  if (submitted) {
-    return (
-      <div className="rounded-lg border border-secondary/30 bg-secondary/5 p-8 text-center">
-        <h3 className="font-heading text-xl font-bold text-primary">Message Received</h3>
-        <p className="mt-3 text-slate-600">
-          Thank you for reaching out. This form is configured for demonstration. Connect via email or WhatsApp for direct contact.
-        </p>
-      </div>
-    );
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const subject = String(data.get("subject") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    const recipient = whatsappNumber.replace(/[^0-9]/g, "");
+    if (recipient.length < 10) {
+      setError(`WhatsApp number is not configured yet. Please email ${siteConfig.contact.email} instead.`);
+      return;
+    }
+
+    const text = [
+      `Hello, I am ${name}.`,
+      "",
+      `Subject: ${subject}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n");
+
+    window.open(`https://wa.me/${recipient}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -86,12 +107,21 @@ export function ContactForm() {
           className="mt-1 w-full rounded-md border border-border px-4 py-3 text-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
         />
       </div>
+
+      {error && (
+        <p className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>
+      )}
+
+      <p className="text-xs text-muted">
+        Submitting opens WhatsApp with your message prefilled to send directly.
+      </p>
+
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+        className="inline-flex items-center gap-2 rounded-md bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
       >
-        <Send size={16} />
-        Send Message
+        <MessageCircle size={16} />
+        Send via WhatsApp
       </button>
     </form>
   );

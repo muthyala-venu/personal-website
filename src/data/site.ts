@@ -65,6 +65,7 @@ export const siteConfig = {
   images: {
     portrait: "/images/muthyalavenu.png",
     orgLogo: "/images/orglogo.png",
+    appointmentCertificate: "/images/aichls-appointment-certificate.jpeg",
   },
   documents: {
     appointmentCertificate: "/images/aichls-appointment-certificate.jpeg",

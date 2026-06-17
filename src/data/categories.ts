@@ -26,6 +26,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       "human-rights-and-social-responsibility",
       "understanding-universal-declaration-of-human-rights",
     ],
+    guideSlugs: ["how-to-approach-government-departments", "emergency-resources"],
   },
   {
     slug: "consumer-rights",
@@ -42,6 +43,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       },
     ],
     articleSlugs: ["understanding-consumer-rights-in-india", "how-consumer-protection-act-helps-citizens"],
+    guideSlugs: ["consumer-complaint-guide"],
   },
   {
     slug: "women-rights",
@@ -58,6 +60,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       },
     ],
     articleSlugs: ["women-rights-awareness-in-india", "understanding-domestic-violence-act-basics"],
+    guideSlugs: ["women-helpline-guide"],
   },
   {
     slug: "child-rights",
@@ -74,6 +77,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       },
     ],
     articleSlugs: ["child-rights-protection-in-india", "human-rights-education-for-youth"],
+    guideSlugs: ["emergency-resources"],
   },
   {
     slug: "senior-citizen-rights",
@@ -90,6 +94,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       },
     ],
     articleSlugs: ["senior-citizen-rights-and-support-in-india"],
+    guideSlugs: ["senior-citizen-support-guide"],
   },
   {
     slug: "constitutional-rights",
@@ -110,6 +115,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       "importance-of-constitutional-awareness",
       "fundamental-rights-every-citizen-should-know",
     ],
+    guideSlugs: ["how-to-file-a-public-grievance", "how-to-approach-government-departments"],
   },
   {
     slug: "rti",
@@ -126,6 +132,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       },
     ],
     articleSlugs: ["right-to-information-act-citizen-guide", "transparency-and-accountability-through-rti"],
+    guideSlugs: ["rti-guide"],
   },
   {
     slug: "cyber-safety",
@@ -142,6 +149,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       },
     ],
     articleSlugs: ["digital-rights-in-the-internet-age", "cyber-safety-awareness-for-citizens"],
+    guideSlugs: ["cyber-crime-complaint-guide"],
   },
   {
     slug: "legal-awareness",
@@ -162,6 +170,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       "access-to-justice-and-legal-aid-in-india",
       "understanding-lok-adalat-and-alternate-dispute-resolution",
     ],
+    guideSlugs: ["how-to-file-a-public-grievance", "how-to-approach-government-departments"],
   },
   {
     slug: "public-welfare",
@@ -182,6 +191,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
       "citizen-participation-in-governance",
       "ethics-and-community-leadership",
     ],
+    guideSlugs: ["how-to-file-a-public-grievance", "how-to-approach-government-departments", "emergency-resources"],
   },
 ];
 

@@ -6,9 +6,11 @@ import { FAQBlock } from "@/components/ui/FAQBlock";
 import { ProfileSummary } from "@/components/seo/ProfileSummary";
 import { PortraitImage } from "@/components/ui/PortraitImage";
 import { OrgLogo } from "@/components/ui/OrgLogo";
+import { AppointmentCertificate } from "@/components/credentials/AppointmentCertificate";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { siteConfig } from "@/data/site";
+import { credentialDisclaimer } from "@/data/credentials";
 import { professionalTimeline } from "@/data/timeline";
 import { globalFaqs } from "@/data/faqs";
 
@@ -143,6 +145,12 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        <div className="mt-8 rounded-lg border-2 border-accent/50 bg-accent/5 p-5">
+          <p className="text-sm leading-relaxed text-slate-700">{credentialDisclaimer}</p>
+        </div>
+
+        <AppointmentCertificate />
 
         <div className="mt-12">
           <ProfileSummary />

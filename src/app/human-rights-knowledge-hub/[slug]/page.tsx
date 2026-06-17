@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { knowledgeCategories, getCategoryBySlug } from "@/data/categories";
 import { getArticleBySlug } from "@/data/articles";
+import { getGuideBySlug } from "@/data/guides";
 import { siteConfig } from "@/data/site";
 import { PageAttribution } from "@/components/seo/PageAttribution";
 
@@ -39,6 +40,10 @@ export default async function CategoryPage({ params }: Props) {
 
   const articles = category.articleSlugs
     .map((s) => getArticleBySlug(s))
+    .filter(Boolean);
+
+  const relatedGuides = (category.guideSlugs || [])
+    .map((s) => getGuideBySlug(s))
     .filter(Boolean);
 
   return (
@@ -81,19 +86,34 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="mt-12">
-          <h2 className="font-heading text-2xl font-bold text-primary">Downloadable Resources</h2>
-          <p className="mt-3 text-slate-600">
-            PDF guides and checklists for this category will be available here. Placeholder for future CMS-managed downloads.
-          </p>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {["Quick Reference Guide (PDF)", "Citizen Checklist (PDF)"].map((resource) => (
-              <div key={resource} className="rounded-lg border border-dashed border-border bg-surface p-6 text-center text-sm text-muted">
-                {resource} — Coming Soon
-              </div>
-            ))}
-          </div>
-        </section>
+        {relatedGuides.length > 0 && (
+          <section className="mt-12">
+            <h2 className="font-heading text-2xl font-bold text-primary">Practical Guides</h2>
+            <p className="mt-3 text-slate-600">
+              Step-by-step educational guides to help citizens navigate public systems related to {category.title.toLowerCase()}.
+            </p>
+            <div className="mt-6 space-y-4">
+              {relatedGuides.map((guide) =>
+                guide ? (
+                  <Link
+                    key={guide.slug}
+                    href={`/public-grievance-guides/${guide.slug}`}
+                    className="block rounded-lg border border-border p-5 transition-shadow hover:shadow-md"
+                  >
+                    <h3 className="font-heading font-bold text-primary">{guide.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{guide.excerpt}</p>
+                  </Link>
+                ) : null
+              )}
+            </div>
+            <Link
+              href="/public-grievance-guides"
+              className="mt-4 inline-block text-sm font-semibold text-secondary hover:underline"
+            >
+              View all grievance guides →
+            </Link>
+          </section>
+        )}
 
         <FAQBlock faqs={category.faqs} />
         <PageAttribution />

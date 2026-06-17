@@ -69,7 +69,7 @@ export default function KnowledgeHubPage() {
         <SummaryBlock title="What is the Knowledge Hub?">
           <p>
             The Human Rights Knowledge Hub by {siteConfig.name} provides structured educational content across ten categories.
-            Each category includes articles, FAQs, and placeholders for future downloadable resources.
+            Each category includes articles, practical grievance guides, and FAQs.
             All content is informational and does not constitute legal advice.
           </p>
         </SummaryBlock>

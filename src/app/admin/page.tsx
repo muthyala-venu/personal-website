@@ -14,7 +14,7 @@ import { PageAttribution } from "@/components/seo/PageAttribution";
 
 export const metadata = createMetadata({
   title: "Admin",
-  description: "CMS-ready admin architecture for content management.",
+  description: "Site content structure and management reference for developers.",
   path: "/admin",
 });
 
@@ -45,7 +45,7 @@ const adminModules = [
   },
   {
     title: "Dashboard",
-    description: "Future blog expansion and CMS integration point.",
+    description: "Browse published articles, guides, and knowledge hub categories.",
     icon: LayoutDashboard,
     href: "/articles",
   },
@@ -56,7 +56,7 @@ export default function AdminPage() {
     <>
       <PageHero
         title="Admin Dashboard"
-        subtitle="CMS-ready architecture placeholder for future content management integration."
+        subtitle="Reference for site content structure, data files, and published sections."
         badge="Admin"
       />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -64,9 +64,9 @@ export default function AdminPage() {
 
         <div className="rounded-lg border border-accent/50 bg-accent/5 p-6">
           <p className="text-sm text-slate-700">
-            This admin section documents the CMS-ready architecture. Content is currently managed through
-            TypeScript data files. Integrate with a headless CMS (Sanity, Contentful, or custom API) by
-            replacing data imports with API calls in the same module structure.
+            This section documents how site content is organized. Articles, guides, FAQs, and profile data are
+            managed through TypeScript data files in <code className="text-xs">src/data/</code>. Update those files
+            to publish new educational content across the website.
           </p>
         </div>
 

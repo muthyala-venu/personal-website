@@ -37,6 +37,7 @@ export interface KnowledgeCategory {
   icon: string;
   faqs: FAQ[];
   articleSlugs: string[];
+  guideSlugs?: string[];
 }
 
 export interface TimelineItem {

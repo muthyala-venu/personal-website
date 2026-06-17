@@ -68,7 +68,7 @@ export const globalFaqs: FAQ[] = [
     id: "faq-10",
     question: "What topics does the Human Rights Knowledge Hub cover?",
     answer:
-      "The Knowledge Hub covers human rights, consumer rights, women rights, child rights, senior citizen rights, constitutional rights, RTI, cyber safety, legal awareness, and public welfare. Each category includes educational articles, FAQs, and resource placeholders for future downloadable materials.",
+      "The Knowledge Hub covers human rights, consumer rights, women rights, child rights, senior citizen rights, constitutional rights, RTI, cyber safety, legal awareness, and public welfare. Each category includes educational articles, FAQs, and links to practical grievance guides.",
     category: "Knowledge Hub",
   },
   {

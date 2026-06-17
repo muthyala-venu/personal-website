@@ -98,18 +98,27 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            <div className="mt-8 flex aspect-video items-center justify-center rounded-lg border border-dashed border-border bg-surface text-sm text-muted">
-              Google Maps Placeholder — Telangana, India
+            <div className="mt-8 rounded-lg border border-border bg-surface p-6">
+              <h3 className="font-heading font-bold text-primary">Location</h3>
+              <p className="mt-2 text-sm text-slate-600">{siteConfig.contact.address}</p>
+              <a
+                href="https://maps.google.com/?q=Telangana,India"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm font-semibold text-secondary hover:underline"
+              >
+                View on Google Maps →
+              </a>
             </div>
           </div>
 
           <div>
             <h2 className="font-heading text-2xl font-bold text-primary">Send a Message</h2>
             <p className="mt-2 text-sm text-slate-600">
-              For awareness-related inquiries. This form is for demonstration; update with backend integration for production.
+              Fill in your details below. Submitting opens WhatsApp with your message prefilled.
             </p>
             <div className="mt-6">
-              <ContactForm />
+              <ContactForm whatsappNumber={siteConfig.contact.whatsapp} />
             </div>
           </div>
         </div>
